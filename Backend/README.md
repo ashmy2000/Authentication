@@ -75,12 +75,11 @@ uvicorn app.main:app --reload
 
 2. Swagger Docs (API Testing): http://127.0.0.1:8000/docs
 
-3. ReDoc (Alternative API docs): http://127.0.0.1:8000/redoc
 
 
 ---
 ## 🗂️ Project Structure
-backend/
+UPDATE IN PROGRESS...
 ...
 
 
