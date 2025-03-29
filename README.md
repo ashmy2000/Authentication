@@ -14,8 +14,7 @@ I built this to help **new developers** understand full-stack workflows from scr
 This project is deployed on **Render**!
 
 - 🌐 **Frontend:** [authentication-frontend-r2gx.onrender.com](https://authentication-frontend-r2gx.onrender.com)
-- ⚙️ **Backend:** [authentication-backend-f6qn.onrender.com](https://authentication-backend-f6qn.onrender.com)
-- 📚 **API Docs (Swagger):** [authentication-backend-f6qn.onrender.com/docs](https://authentication-backend-f6qn.onrender.com/docs)
+- 📚 **Backend API Docs (Swagger):** [authentication-backend-f6qn.onrender.com/docs](https://authentication-backend-f6qn.onrender.com/docs)
 
 > 📝 **Note:**  
 > - The `main` branch contains deployment-ready code.  
