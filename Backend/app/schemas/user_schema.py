@@ -49,4 +49,3 @@ class User(BaseModel):
 
 class ForgotPasswordRequest(BaseModel):
     email: EmailStr
-
