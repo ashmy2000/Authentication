@@ -15,13 +15,7 @@ This project is deployed on **Render**!
 
 - 🌐 **Frontend:** [authentication-frontend-r2gx.onrender.com](https://authentication-frontend-r2gx.onrender.com)
 - 📚 **Backend API Docs (Swagger):** [authentication-backend-f6qn.onrender.com/docs](https://authentication-backend-f6qn.onrender.com/docs)
-
-> 📝 **Note:**  
-> - The `main` branch contains deployment-ready code.  
-> - The `local_dev` branch is for local development with `.env` files, localhost URLs, etc.
-
-👈 Live App: [Authentication App on Render](https://authentication-frontend-r2gx.onrender.com/)
-
+  
 ---
 
 ## 📁 Project Structure (With File Descriptions)
