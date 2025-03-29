@@ -52,3 +52,27 @@ async def authenticate_user(email: str, password: str) -> bool:
         return False
 
     return verify_password(password, user["password"])
+
+
+
+async def send_reset_link(email: str) -> bool:
+    """
+    Simulates sending a password reset link to a user's email.
+
+    This function checks if the email exists in the database, and if it does,
+    logs a message to simulate sending a reset link.
+
+    Args:
+        email (str): The email address of the user requesting password reset.
+
+    Returns:
+        bool: True if the email exists and the link was (simulated) sent, False otherwise.
+
+    """
+    user = await db.users.find_one({"email": email})
+    if not user:
+        return False
+
+    # TODO: Integrate a real email sender
+    print(f"[DEBUG] Password reset link sent to {email}")
+    return True

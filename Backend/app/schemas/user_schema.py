@@ -46,3 +46,7 @@ class User(BaseModel):
     """
     email: EmailStr
     password: str
+
+class ForgotPasswordRequest(BaseModel):
+    email: EmailStr
+
