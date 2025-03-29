@@ -60,11 +60,6 @@ This app will soon be **deployed on [Render](https://render.com)**.
 
 ## 📣 Feedback is Welcome!
 
+> 🔧 This project is a part of my learning journey as a full-stack developer.  
 I'm always looking to improve.  
 If you have any feedback, suggestions, or improvements — **please feel free to open an issue or connect!**
-
----
-
-> 🔧 This project is a part of my learning journey as a full-stack developer.  
-Stay tuned for upcoming features like a full ToDo dashboard, task filters, and real-time updates.
-
