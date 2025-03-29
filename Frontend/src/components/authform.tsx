@@ -3,12 +3,11 @@
 import React, { useState } from 'react';
 import './authform.css';
 import { signup, login } from '../api/auth';
+import { Link } from 'react-router-dom';
 
 /**
- * Authentication form component
- * - Handles both Sign Up and Login flows
- * - Switches between views
- * - Calls backend API
+ * Authentication form component.
+ * Handles both login and signup with API integration.
  */
 const AuthForm: React.FC = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -18,17 +17,24 @@ const AuthForm: React.FC = () => {
   const [message, setMessage] = useState('');
 
   /**
-   * Handles form submission
-   * Sends login or signup request to backend
-   * Displays success or error message
+   * Toggle between Sign In and Sign Up forms.
+   */
+  const toggleForm = () => {
+    setIsLogin(!isLogin);
+    setEmail('');
+    setPassword('');
+    setUsername('');
+    setMessage('');
+  };
+
+  /**
+   * Submit handler for form (signup/login).
    */
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     try {
-      type AuthResponse = {
-        message: string;
-      };
+      type AuthResponse = { message: string };
 
       const res = (isLogin
         ? await login(email, password)
@@ -36,7 +42,7 @@ const AuthForm: React.FC = () => {
 
       setMessage(res.data.message);
 
-      // Automatically switch to login after successful signup
+      // After successful signup, switch to login
       if (!isLogin) {
         setTimeout(() => {
           setIsLogin(true);
@@ -48,7 +54,6 @@ const AuthForm: React.FC = () => {
       setMessage(err.response?.data?.detail || 'Something went wrong');
     }
 
-    // Reset form
     setEmail('');
     setPassword('');
     setUsername('');
@@ -80,6 +85,7 @@ const AuthForm: React.FC = () => {
             onChange={(e) => setUsername(e.target.value)}
           />
         )}
+
         <input
           type="email"
           placeholder="Email"
@@ -87,6 +93,7 @@ const AuthForm: React.FC = () => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
+
         <input
           type="password"
           placeholder="Password"
@@ -96,29 +103,27 @@ const AuthForm: React.FC = () => {
         />
 
         {isLogin && (
-          <a href="https://example.com/forgot" className="forgot">
+          <Link to="/forgot-password" className="forgot">
             Forgot password?
-          </a>
+          </Link>
         )}
 
         <button type="submit">
           {isLogin ? 'Get Started' : 'Create Account'}
         </button>
 
-        {/* ✅ Message feedback */}
         {message && <p className="auth-message">{message}</p>}
 
-        {/* Switch mode */}
         <div className="alt-option">
           {isLogin ? (
             <>
               Don&apos;t have an account?{' '}
-              <span onClick={() => setIsLogin(false)}>Sign up</span>
+              <span onClick={toggleForm}>Sign up</span>
             </>
           ) : (
             <>
               Already have an account?{' '}
-              <span onClick={() => setIsLogin(true)}>Sign in</span>
+              <span onClick={toggleForm}>Sign in</span>
             </>
           )}
         </div>
