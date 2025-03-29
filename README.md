@@ -2,14 +2,14 @@
 
 This is a full-stack **ToDo List App** designed with modern technologies for both frontend and backend.
 
-### 🎯 Current Status
+## 🎯 Current Status
 So far, the project includes:
 - ✅ **User Authentication** (Sign Up & Login)
 - 🚧 **ToDo List** functionality coming soon!
 
 ---
 
-## 📁 Project Structure
+### 📁 Project Structure
 
 The codebase is cleanly separated into:
 
@@ -18,7 +18,7 @@ Each section has its own `README.md` explaining how to set up and run it **indep
 
 ---
 
-## 💻 Running the Project Locally
+### 💻 Running the Project Locally
 
 You can run the backend and frontend separately for development:
 
@@ -29,7 +29,7 @@ Each subfolder has a step-by-step `README.md` so you can spin up each part local
 
 ---
 
-## 🌍 Deployment
+### 🌍 Deployment
 
 This app will soon be **deployed on [Render](https://render.com)**.
 
@@ -39,7 +39,7 @@ This app will soon be **deployed on [Render](https://render.com)**.
 
 ---
 
-## 🛠 Tech Stack
+### 🛠 Tech Stack
 
 ### Backend (FastAPI):
 - FastAPI
