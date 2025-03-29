@@ -78,7 +78,7 @@ You’ll need to run frontend and backend separately:
 
 > ❗ These instructions are specifically for running the project locally.  
 > If you'd like to deploy it on Render, I recommend using **Generative AI** tools (like ChatGPT or GitHub Copilot) to guide you with `.env` setup, deployment pipelines, and any required changes.
-> Open Backend ReadMe file first then Frontend ReadMe file. 
+<br>Open Backend ReadMe file first then Frontend ReadMe file. 
 
 ### 📦 Backend (FastAPI)
 - Python 3.8+
