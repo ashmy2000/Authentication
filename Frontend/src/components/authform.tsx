@@ -1,5 +1,7 @@
+// src/components/AuthForm.tsx
 import React, { useState } from 'react';
 import './authform.css';
+import { signup, login } from '../api/auth';
 
 const AuthForm: React.FC = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -10,31 +12,35 @@ const AuthForm: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
-    const endpoint = isLogin ? 'login' : 'signup';
-
-    const payload = isLogin
-      ? { email, password }
-      : { email, password, username };
-
-    const response = await fetch(`http://localhost:8000/${endpoint}`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload),
-    });
   
-    const data = await response.json();
-
-    if (data.message) {
-      setMessage(data.message);
-    } else {
-      setMessage(data.error || 'Something went wrong');
+    try {
+      type AuthResponse = {
+        message: string;
+      };
+  
+      const res = (isLogin
+        ? await login(email, password)
+        : await signup(username, email, password)) as { data: AuthResponse };
+  
+      setMessage(res.data.message);
+  
+      // 👇 Switch to login form after successful signup
+      if (!isLogin) {
+        setTimeout(() => {
+          setIsLogin(true); // Switch to login
+          setMessage('');   // Optional: clear success message
+        }, 1000); // 2-second delay
+      }
+  
+    } catch (err: any) {
+      setMessage(err.response?.data?.detail || 'Something went wrong');
     }
-
+  
     setEmail('');
     setPassword('');
     setUsername('');
   };
+  
   
 
   return (
@@ -47,14 +53,14 @@ const AuthForm: React.FC = () => {
             ? 'Welcome Back: Your Focus Starts Here'
             : <>Every great day starts with a great list...<br />Join the platform and power your productivity with intention!</>}
         </p>
-        
+  
         {!isLogin && (
           <input
             type="text"
             placeholder="Username"
             required
             value={username}
-            onChange={e => setUsername(e.target.value)}
+            onChange={(e) => setUsername(e.target.value)}
           />
         )}
         <input
@@ -62,21 +68,23 @@ const AuthForm: React.FC = () => {
           placeholder="Email"
           required
           value={email}
-          onChange={e => setEmail(e.target.value)}
+          onChange={(e) => setEmail(e.target.value)}
         />
         <input
           type="password"
           placeholder="Password"
           required
           value={password}
-          onChange={e => setPassword(e.target.value)}
+          onChange={(e) => setPassword(e.target.value)}
         />
-
-        {isLogin && <a href="#" className="forgot">Forgot password?</a>}
+  
+        {isLogin && <a href="https://example.com/forgot" className="forgot">Forgot password?</a>}
+  
         <button type="submit">{isLogin ? 'Get Started' : 'Create Account'}</button>
-        
-
-
+  
+        {/* ✅ Show message here */}
+        {message && <p className="auth-message">{message}</p>}
+  
         <div className="alt-option">
           {isLogin ? (
             <>
@@ -93,6 +101,5 @@ const AuthForm: React.FC = () => {
       </form>
     </div>
   );
-};
-
+}
 export default AuthForm;
