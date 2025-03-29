@@ -15,8 +15,9 @@
 ================================= */
 .auth-card {
   background: #ffffff;
-  padding: 4rem 4.5rem 3rem 3rem;
-  width: 320px;
+  padding: 3rem 4.5rem 3rem 3rem;
+  width: 100%;
+  max-width: 460px;
   border-radius: 20px;
   box-shadow: 0 30px 52px rgba(0, 0, 0, 0.1);
   text-align: center;
