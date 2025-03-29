@@ -9,6 +9,15 @@ So far, the project includes:
 
 ---
 
+## Deployed Version
+In ashmy2000/ToDoList repo the main branch is depoloyed on https://render.com/ 
+<br> the ashmy/ToDoList local_dev branch is for local use 
+- Frontend: https://authentication-frontend-r2gx.onrender.com/
+- Backend: https://authentication-backend-r6qn.onrender.com
+- Backend Swagger: https://authentication-backend-r6qn.onrender.com/docs
+
+---
+
 ### 📁 Project Structure
 
 The codebase is cleanly separated into:
