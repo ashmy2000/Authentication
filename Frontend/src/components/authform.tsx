@@ -1,8 +1,15 @@
 // src/components/AuthForm.tsx
+
 import React, { useState } from 'react';
 import './authform.css';
 import { signup, login } from '../api/auth';
 
+/**
+ * Authentication form component
+ * - Handles both Sign Up and Login flows
+ * - Switches between views
+ * - Calls backend API
+ */
 const AuthForm: React.FC = () => {
   const [isLogin, setIsLogin] = useState(true);
   const [email, setEmail] = useState('');
@@ -10,50 +17,60 @@ const AuthForm: React.FC = () => {
   const [username, setUsername] = useState('');
   const [message, setMessage] = useState('');
 
+  /**
+   * Handles form submission
+   * Sends login or signup request to backend
+   * Displays success or error message
+   */
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-  
+
     try {
       type AuthResponse = {
         message: string;
       };
-  
+
       const res = (isLogin
         ? await login(email, password)
         : await signup(username, email, password)) as { data: AuthResponse };
-  
+
       setMessage(res.data.message);
-  
-      // 👇 Switch to login form after successful signup
+
+      // Automatically switch to login after successful signup
       if (!isLogin) {
         setTimeout(() => {
-          setIsLogin(true); // Switch to login
-          setMessage('');   // Optional: clear success message
-        }, 1000); // 2-second delay
+          setIsLogin(true);
+          setMessage('');
+        }, 1000);
       }
-  
+
     } catch (err: any) {
       setMessage(err.response?.data?.detail || 'Something went wrong');
     }
-  
+
+    // Reset form
     setEmail('');
     setPassword('');
     setUsername('');
   };
-  
-  
 
   return (
     <div className="auth-container">
       <form className="auth-card" onSubmit={handleSubmit}>
         <div className="icon">✔️</div>
         <h2>{isLogin ? 'Sign in with email' : 'Create an account'}</h2>
+
         <p className="subtext">
-          {isLogin
-            ? 'Welcome Back: Your Focus Starts Here'
-            : <>Every great day starts with a great list...<br />Join the platform and power your productivity with intention!</>}
+          {isLogin ? (
+            'Welcome Back: Your Focus Starts Here'
+          ) : (
+            <>
+              Every great day starts with a great list...<br />
+              Join the platform and power your productivity with intention!
+            </>
+          )}
         </p>
-  
+
         {!isLogin && (
           <input
             type="text"
@@ -77,18 +94,25 @@ const AuthForm: React.FC = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-  
-        {isLogin && <a href="https://example.com/forgot" className="forgot">Forgot password?</a>}
-  
-        <button type="submit">{isLogin ? 'Get Started' : 'Create Account'}</button>
-  
-        {/* ✅ Show message here */}
+
+        {isLogin && (
+          <a href="https://example.com/forgot" className="forgot">
+            Forgot password?
+          </a>
+        )}
+
+        <button type="submit">
+          {isLogin ? 'Get Started' : 'Create Account'}
+        </button>
+
+        {/* ✅ Message feedback */}
         {message && <p className="auth-message">{message}</p>}
-  
+
+        {/* Switch mode */}
         <div className="alt-option">
           {isLogin ? (
             <>
-              Don't have an account?{' '}
+              Don&apos;t have an account?{' '}
               <span onClick={() => setIsLogin(false)}>Sign up</span>
             </>
           ) : (
@@ -101,5 +125,6 @@ const AuthForm: React.FC = () => {
       </form>
     </div>
   );
-}
+};
+
 export default AuthForm;

@@ -109,7 +109,7 @@ uvicorn app.main:app --reload
 ```bash 
 from app.routes import auth
 ```
-<br> instead of:
+instead of:
 
 ```bash 
 from app.routes.auth import auth

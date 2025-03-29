@@ -1,0 +1,21 @@
+/* ================================
+   Global Base Styles
+================================== */
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f2f5;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Optional: Apply smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Optional: Make all elements box-sizing:border-box */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
