@@ -14,10 +14,10 @@ from fastapi.middleware.cors import CORSMiddleware
 # Import routes
 from app.routes import auth, homepage
 
-# Initialize FastAPI app & Swagger Info: /docs
+# Initialise FastAPI app & Swagger Info: /docs
 app = FastAPI(
-    title="ToDo App API",
-    description="API backend for To Do List Application.",
+    title="Authentication API",
+    description="API backend for Authentication Application.",
     version="1.0.0"
 )
 
