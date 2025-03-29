@@ -24,7 +24,10 @@ app = FastAPI(
 # Enable CORS to allow frontend access
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://authentication-frontend-r2gx.onrender.com"],  # React frontend origin
+        allow_origins=[
+        "https://authentication-frontend-r2gx.onrender.com",  # ✅ Deployed frontend
+        "http://localhost:3000",  # ✅ Local React dev server
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

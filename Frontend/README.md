@@ -1,52 +1,100 @@
-# 🌐 ToDo List – Frontend (React + TypeScript)
+# 🌐 ToDo List – Frontend (React + TypeScript) (LOCAL)
 
-This is the **frontend** of the ToDo List project. It is built using **React** and **TypeScript**, and it connects to the backend API (FastAPI) to manage user authentication and, soon, tasks.
+This is the **frontend** of the ToDo List project, built using **React + TypeScript**.
+It connects to a FastAPI backend for user authentication and soon, task management.
+
+---
+
+## ✨ What Can You Do So Far?
+- ✅ **Sign Up** as a new user
+- ✅ **Login** if you're already registered
+- ✅ **Forgot Password** UI (no real email is sent – this is for learning/template purposes)
 
 ---
 
 ## 📦 Prerequisites
+Make sure you have the following tools installed:
 
-Before running the frontend, make sure you have these installed:
-
-1. ✅ [Node.js](https://nodejs.org/en/) (version 18 or above recommended)
-2. ✅ [npm](https://www.npmjs.com/) (comes automatically with Node.js)
-3. ✅ The backend API should be running (see `/backend/README.md` for setup)
+- ✅ Node.js (v18 or higher recommended)
+- ✅ npm (comes with Node.js)
+- ✅ The backend API should be running locally first (see `/backend/README.md`)
 
 ---
 
 ## ⚙️ Local Setup – Step by Step
 
-Follow these simple steps to run the frontend on your computer:
-
-# 1. Go to the frontend folder
+### 1. Clone the Repository
 ```bash
-cd frontend
+git clone https://github.com/ashmy2000/Authentication.git
 ```
-# 2. Install all dependencies
 
+### 2. Navigate to the Frontend Folder
+```bash
+cd Authentication/frontend
+```
+
+### 3. Install Dependencies
 ```bash
 npm install
 ```
-# 3. Start the React development server
-```bash
-npm start
-```
-After this, you should see the app running on:
-👉 http://localhost:3000
 
-## 🌐 Environment Variable Setup
-The frontend uses an .env file to know where to find the backend API.
-<br>Create a .env file inside the /frontend folder (if not already present).
-<br>Add this line:
-
+### 4. Setup Environment Variables
+Create a file named `.env` in the root of the `/frontend` folder and add the following line:
 ```bash
 REACT_APP_API_BASE_URL=http://localhost:8000/api/v1/authentication
 ```
 ✅ Make sure your backend is running on port 8000.
 
+### 5. Start the React App
+```bash
+npm start
+```
+
+The app will now run on 👉 **[http://localhost:3000](http://localhost:3000)**
+
+---
+
+## 🗂 Folder Structure
+```bash
+frontend/
+│
+├── build/                # Production build folder
+├── public/               # Static files like index.html
+├── src/                  # Source code
+│   ├── api/              # Axios setup for API calls
+│   │   └── auth.ts
+│   ├── components/       # Reusable components (Auth form, etc.)
+│   │   ├── authform.tsx
+│   │   ├── authform.css
+│   │   └── forgotpassword.tsx
+│   ├── pages/            # UI pages (e.g. Home)
+│   │   └── home.ts
+│   ├── utils/            # Helper functions (e.g. storage.ts)
+│   ├── App.tsx
+│   ├── App.css
+│   ├── index.tsx         # Entry point
+│   └── index.css
+├── .env.example          # Sample env file
+├── .gitignore
+├── package.json
+├── tsconfig.json
+└── README.md             # You're reading it!
+```
+
+---
+
 ## 💡 Notes for Beginners
-- All the source code is inside the /src folder.
+- All source code lives inside `/src`
+- The app auto-reloads when you save changes
+- No MongoDB is needed for frontend – it communicates with the backend
+- This project uses **TypeScript** for better development experience
 
-- The app will auto-reload when you make changes in the code.
+---
 
-- You don’t need to install MongoDB for the frontend — it just talks to the backend which handles data storage.
+## 🤝 Contributions & Feedback
+This is a **beginner-friendly** template aimed at students and those new to web development.
+
+📣 Suggestions are welcome — I'm still improving this.
+Future projects will build on this foundation (in new repos)!
+
+Check the full project here: [https://github.com/ashmy2000/Authentication](https://github.com/ashmy2000/Authentication)
