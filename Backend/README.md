@@ -101,3 +101,17 @@ uvicorn app.main:app --reload
 
 - ✅ Should I commit .env to GitHub?
 <br> Never. Add .env to .gitignore. Use .env.example to show other devs what keys are needed.
+
+- ✅ What is __init__.py?
+<br> In Python, __init__.py is a special file that marks a directory as a Python package.
+<br> This is what allows you to do:
+
+```bash 
+from app.routes import auth
+```
+<br> instead of:
+
+```bash 
+from app.routes.auth import auth
+
+```
