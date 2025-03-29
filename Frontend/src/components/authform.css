@@ -1,3 +1,6 @@
+/* ===============================
+   Layout & Container Styling
+================================= */
 .auth-container {
   display: flex;
   justify-content: center;
@@ -7,6 +10,9 @@
   font-family: 'Segoe UI', sans-serif;
 }
 
+/* ===============================
+   Card UI
+================================= */
 .auth-card {
   background: #ffffff;
   padding: 4rem 4.5rem 3rem 3rem;
@@ -32,6 +38,9 @@
   margin-bottom: 1rem;
 }
 
+/* ===============================
+   Form Inputs & Buttons
+================================= */
 .auth-card input {
   width: 100%;
   padding: 0.75rem;
@@ -58,15 +67,32 @@
   background-color: #333;
 }
 
+/* ===============================
+   Helper Text & Links
+================================= */
+.auth-message {
+  color: green;
+  text-align: center;
+  font-weight: 500;
+  margin-top: 10px;
+}
+
 .forgot {
   display: block;
+  background: none;
+  border: none;
   text-align: right;
   font-size: 0.85rem;
   margin-top: 0.2rem;
   color: #007bff;
-  text-decoration: none;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 0;
 }
 
+/* ===============================
+   Alt Link (Sign up / Sign in)
+================================= */
 .alt-option {
   margin-top: 1.5rem;
   font-size: 0.9rem;
