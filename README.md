@@ -9,6 +9,17 @@ It securely stores user data using **MongoDB Atlas** and uses **password hashing
 
 I built this to help **new developers** understand full-stack workflows from scratch — backend, frontend, deployment, and more. You’ll find guides for both local setup and deployment in their respective folders. I'm also open to receiving feedback and suggestions to improve my code and approach!
 
+## 🚀 Deployed Version
+
+This project is deployed on **Render**!
+
+- 🌐 **Frontend:** [authentication-frontend-r2gx.onrender.com](https://authentication-frontend-r2gx.onrender.com)
+- ⚙️ **Backend:** [authentication-backend-f6qn.onrender.com](https://authentication-backend-f6qn.onrender.com)
+- 📚 **API Docs (Swagger):** [authentication-backend-f6qn.onrender.com/docs](https://authentication-backend-f6qn.onrender.com/docs)
+
+> 📝 **Note:**  
+> - The `main` branch contains deployment-ready code.  
+> - The `local_dev` branch is for local development with `.env` files, localhost URLs, etc.
 
 👈 Live App: [Authentication App on Render](https://authentication-frontend-r2gx.onrender.com/)
 
